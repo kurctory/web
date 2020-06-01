@@ -85,34 +85,45 @@ if (isset ($_POST['fileToUpload'])){
 </head>
 <body style="background-color: <?php echo "$_REQUEST[background]"; ?>;">
 <div>
-    <form action="<?php upload(); ?>"
-          method="post" enctype="multipart/form-data">
-        Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="submit" value="Upload Image" name="submit">
-
-    </form>
-    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <table border="<?php echo $table_border; ?>"
-               cellpadding="15"
-               bordercolor="<?php echo "$_REQUEST[border_color]"; ?>"
-               align="<?php echo $table_align; ?>"
-               style="background-color: <?php echo "$_REQUEST[table_background]"; ?>;
-                      margin-top: 50px">
-            <tr><th colspan="2" align="center"><b><?php echo $table_name; ?></b></th></tr>
-            <tr colspan="2">&nbsp;</tr>
-            <tr>
-                <td width="<?php echo $table_width; ?>%" >
-                    <img src="<?php echo $table_img; ?>" height="20" width="20"></td>
-                <td width="(100-<?php echo $table_width; ?>)%">
-                    <a href="<?php echo $table_link; ?>">link</a>
-                </td>
-            </tr>
-            <tr>
-                <td >Ячейка 3</td>
-                <td >Ячейка 4</td>
-            </tr>
-        </table></form>
+    <table border="<?php echo $table_border; ?>"
+           cellpadding="15"
+           bordercolor="<?php echo "$_REQUEST[border_color]"; ?>"
+           align="<?php echo $table_align; ?>"
+           style="background-color: <?php echo "$_REQUEST[table_background]"; ?>;
+                  margin-top: 50px">
+        <tr><th colspan="2" align="center"><b><?php echo $table_name; ?></b></th></tr>
+        <tr colspan="2">&nbsp;</tr>
+        <tr>
+            <td width="<?php echo $table_width; ?>%" >
+                <form action="loading_img.php"
+                      method="post" enctype="multipart/form-data">
+                    Image:
+                    <input type="file" name="fileToUpload" id="fileToUpload"><br>
+                    <input type="submit" value="Upload" name="submit">
+                </form></td>
+            <td width="(100-<?php echo $table_width; ?>)%">
+                <a href="<?php echo $table_link; ?>">link</a>
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <form action="loading_files.php"
+                      method="post" enctype="multipart/form-data">
+                    Boot file:
+                    <input type="file" name="fileToUpload" id="fileToUpload"><br>
+                    <input type="submit" value="Upload" name="submit">
+                </form>
+            </td>
+            <td >
+                <form action="loading_files.php"
+                      method="post" enctype="multipart/form-data">
+                    Text file:
+                    <input type="file" name="fileToUpload" id="fileToUpload"><br>
+                    <input type="submit" value="Upload" name="submit">
+                </form>
+            </td>
+        </tr>
+        </table>
         <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <table border="1"  cellpadding="15" align="left"
                style="margin-top: 200px;
