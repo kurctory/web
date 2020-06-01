@@ -165,13 +165,6 @@ if (isset ($_POST['fileToUpload'])){
             <th>Link</th>
             <th><input type="text" name="link"></th>
             </tr>
-            <tr>
-                <th>Text file</th>
-                <th><input type="text" name="text"></th>
-                <th>Boot file</th>
-                <th><input type="text" name="file"></th>
-            </tr>
-
             <tr><th>Border color</th>
                 <th><select name="border_color">
                         <option value = "">color</option>
